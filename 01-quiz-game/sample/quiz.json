@@ -1,0 +1,42 @@
+[
+    {
+        "question": "What is the name of Harry Potter's owl?",
+        "answer": "Hedwig"
+    },
+    {
+        "question": "Which Hogwarts house does Luna Lovegood belong to?",
+        "answer": "Ravenclaw"
+    },
+    {
+        "question": "Who is the headmaster of Hogwarts in the first book/movie?",
+        "answer": "Professor Dumbledore"
+    },
+    {
+        "question": "What is the name of the three-headed dog guarding the Sorcerer's Stone?",
+        "answer": "Fluffy"
+    },
+    {
+        "question": "Which of these spells is used to disarm an opponent?",
+        "answer": "Expelliarmus"
+    },
+    {
+        "question": "What position does Harry Potter play on the Gryffindor Quidditch team?",
+        "answer": "Seeker"
+    },
+    {
+        "question": "Who is known as the 'Half-Blood Prince'?",
+        "answer": "Severus Snape"
+    },
+    {
+        "question": "What is the name of the infamous prison in Harry Potter?",
+        "answer": "Azkaban"
+    },
+    {
+        "question": "What is the core of Harry's wand?",
+        "answer": "Phoenix feather"
+    },
+    {
+        "question": "What is the final Horcrux that Harry must destroy in 'Harry Potter and the Deathly Hallows'?",
+        "answer": "Nagini"
+    }
+]
