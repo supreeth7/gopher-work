@@ -1,5 +1,6 @@
 # gopher-work
 
-![alt](https://previews.dropbox.com/p/thumb/ACH9b6xUtYz4qgoz92w4ucfUpIBPlAu9Xl1S5D-lxWspDUdKeJOzYjXyiCXSFf2ikWOU_SK-kaVpYVX81BLetzVc0vTXPXtMGH5QxKxkn66sBANFhw0Gssi2uvIxxF822zpOVJgkzWKQ7dPzrUYjTz0i-iRlwgXfBfXOsjbpPMb5ZqR-DqOMp72qI63VJVL4_pb2gPET1aLQ3mtOp6_KYk_mxARsER6fW3ta2NOmtX39TBUo-cBUURCBgmsTY8adthWpmRx27sBEA9Y6qwDIfifKmzmuiObgSSPuzU6CIshkAVilpxhknUQjgR4g9jyj66CdtuciSs2LLhDZVHksBRCd/p.gif)
+<img src='https://www.dropbox.com/scl/fi/i2ltprab2wqclqzreg5yy/gopher_lifting.gif?rlkey=ypeo7gpqd9io1x3drw3mpi4db&raw=1'  width='400'>
+
 
 A simple bespoke compilation of go exercises to luster my non-DevOps specific golang prowess
