@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"time"
 )
 
 type quiz struct {
@@ -16,6 +17,9 @@ type quiz struct {
 
 func main() {
 	jsonFile := flag.String("file", "quiz.json", "The JSON file with the quiz questions. Expected format: 'question:answer'")
+
+	limit := flag.Int("limit", 30, "The time limit for the quiz; seconds")
+
 	flag.Parse()
 
 	file, err := os.Open(*jsonFile)
@@ -41,23 +45,33 @@ func main() {
 	var score int
 
 	reader := bufio.NewReader(os.Stdin)
+	timer := time.NewTimer(time.Duration(*limit) * time.Second)
 
 	for i, question := range q {
-		fmt.Printf("#%d %s?\n", i+1, question.Question)
+		fmt.Printf("\n#%d %s?\n", i+1, question.Question)
 
-		if scrutinize(question.Answer, reader) {
-			score++
+		answer := make(chan bool)
+		go scrutinize(question.Answer, reader, answer)
+
+		select {
+		case <-timer.C:
+			fmt.Printf(
+				"****************\nTotal score: %d/%d\n****************\n",
+				score,
+				len(q),
+			)
+			return
+		case ans := <-answer:
+			if ans {
+				fmt.Println("Correct!")
+				score++
+			}
+			fmt.Println("Better luck next time!")
 		}
 	}
-
-	fmt.Printf(
-		"****************\nTotal score: %d/%d\n****************\n",
-		score,
-		len(q),
-	)
 }
 
-func scrutinize(answer string, reader *bufio.Reader) bool {
+func scrutinize(answer string, reader *bufio.Reader, ch chan bool) {
 	input, err := reader.ReadString('\n')
 	if err != nil {
 		fmt.Printf("Failed to read input: %v", err)
@@ -67,10 +81,8 @@ func scrutinize(answer string, reader *bufio.Reader) bool {
 	input = strings.Trim(input, "\n")
 
 	if answer == input {
-		fmt.Println("Correct!")
-		return true
+		ch <- true
 	}
 
-	fmt.Println("Better luck next time!")
-	return false
+	ch <- false
 }
