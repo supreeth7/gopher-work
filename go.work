@@ -3,4 +3,6 @@ go 1.20
 use (
 	.
 	./01-quiz-game
+	./02-url-shortener
+	./03-gotask
 )

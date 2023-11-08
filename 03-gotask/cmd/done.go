@@ -6,6 +6,7 @@ package cmd
 
 import (
 	"fmt"
+	"strconv"
 
 	"github.com/spf13/cobra"
 )
@@ -15,7 +16,18 @@ var doneCmd = &cobra.Command{
 	Use:   "done",
 	Short: "Marks a task as completed",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("done called")
+		var taskIds []int
+
+		for _, arg := range args {
+			id, err := strconv.Atoi(arg)
+			if err != nil {
+				panic(err)
+			}
+
+			taskIds = append(taskIds, id)
+		}
+
+		fmt.Printf("Tasks %d have been marked as done", taskIds)
 	},
 }
 
